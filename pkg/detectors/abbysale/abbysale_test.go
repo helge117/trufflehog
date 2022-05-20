@@ -14,6 +14,11 @@ import (
 )
 
 func TestAbbysale_FromChunk(t *testing.T) {
+	authConfig := &clientcredentials.Config{
+		ClientID:     "<client_id>",
+		ClientSecret: "9a9d94510e58485f846b002401d1a5d6",
+		TokenURL:     spotify.TokenURL,
+	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	testSecrets, err := common.GetSecret(ctx, "trufflehog-testing", "detectors3")
